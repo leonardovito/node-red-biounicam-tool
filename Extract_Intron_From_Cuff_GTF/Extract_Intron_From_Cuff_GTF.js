@@ -1,7 +1,7 @@
 const { allowedNodeEnvironmentFlags, stdout } = require('process');
 
 module.exports = function(RED) {
-    function IncrementFastaContig(config) {
+    function ExtractIntronFromCuffGtf(config) {
         RED.nodes.createNode(this,config);
         var node = this;
 
@@ -11,18 +11,25 @@ module.exports = function(RED) {
         if(os == "win32") {
             var useros = require('os');
             var username = useros.userInfo().username;
-            jaraddr = 'C:\\Users\\' + username + '\\.node-red\\node_modules\\increment_fasta_contig\\lib\\IncremetingConting.jar'
+            jaraddr = 'C:\\Users\\' + username + '\\.node-red\\node_modules\\biounicam-tool\\lib\\ExtractIntroFromCuff.jar'
         } else {
-            jaraddr = "~/.node-red/node_modules/increment_fasta_contig/lib/IncremetingConting.jar";
+            jaraddr = "~/.node-red/node_modules/extract_intron_from_cuff_gtf/lib/ExtractIntroFromCuff.jar";
         }
 
         console.log(jaraddr);
         this.fasta = config.fasta;
+        this.cuff = config.cuff;
         this.pathfolder = config.pathfolder;
         this.outputname = config.outputname;
+        this.flanking = config.flanking;
 
-        let command = 'java -jar ' + jaraddr + ' -f ' + node.fasta + ' -path ' + node.pathfolder + ' -out ' + node.outputname;
-        console.log(command);
+        let command;
+        if(node.flanking == "") {
+            command = 'java -jar ' + jaraddr + ' -fa ' + node.fasta + ' -cu ' + node.cuff +  ' -out ' + node.outputname + ' -path ' + node.pathfolder;
+        } else {
+            command = 'java -jar ' + jaraddr + ' -fa ' + node.fasta + ' -cu ' + node.cuff +  ' -out ' + node.outputname + ' -path ' + node.pathfolder + ' -f ' + node.flanking;
+        }
+        
         node.on('input', function(msg) {
             const exec = require('child_process').exec;
             const childPorcess = exec(command, function(err, stdout, stderr) {
@@ -35,5 +42,5 @@ module.exports = function(RED) {
             })
         });
     }
-    RED.nodes.registerType("increment_fasta_contig",IncrementFastaContig);
+    RED.nodes.registerType("extract_intron_from_cuff_gtf",ExtractIntronFromCuffGtf);
 }
