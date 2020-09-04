@@ -1,5 +1,5 @@
 {
-  "name": "biounicam-tool",
+  "name": "increment_fasta_contig",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
   "license": "ISC",
   "node-red": {
     "nodes": {
-      "bio-unicam": "bio-unicam.js"
+      "increment_fasta_contig": "Increment_Fasta_Contig.js"
     }
   }
 }
