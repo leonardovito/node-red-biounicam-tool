@@ -11,20 +11,19 @@ module.exports = function(RED) {
         if(os == "win32") {
             var useros = require('os');
             var username = useros.userInfo().username;
-            jaraddr = 'C:\\Users\\' + username + '\\.node-red\\node_modules\\biounicam-tool\\lib\\ExtractIntroFromCuff.jar'
+            jaraddr = 'C:/Users/' + username + '/.node-red/node_modules/extract_intron_from_cuff_gtf/lib/ExtractIntroFromCuff.jar'
         } else {
             jaraddr = "~/.node-red/node_modules/extract_intron_from_cuff_gtf/lib/ExtractIntroFromCuff.jar";
         }
 
-        console.log(jaraddr);
         this.fasta = config.fasta;
         this.cuff = config.cuff;
         this.pathfolder = config.pathfolder;
         this.outputname = config.outputname;
         this.flanking = config.flanking;
 
-        let command;
-        if(node.flanking == "") {
+        var command;
+        if(node.flanking == "" || node.flanking == null) {
             command = 'java -jar ' + jaraddr + ' -fa ' + node.fasta + ' -cu ' + node.cuff +  ' -out ' + node.outputname + ' -path ' + node.pathfolder;
         } else {
             command = 'java -jar ' + jaraddr + ' -fa ' + node.fasta + ' -cu ' + node.cuff +  ' -out ' + node.outputname + ' -path ' + node.pathfolder + ' -f ' + node.flanking;
@@ -36,7 +35,6 @@ module.exports = function(RED) {
                 if (err) {
                     console.log(err)
                 }
-                //console.log(stdout)
                 msg.payload = stdout;
                 node.send(msg);
             })

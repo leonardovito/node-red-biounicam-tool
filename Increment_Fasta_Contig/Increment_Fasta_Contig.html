@@ -4,7 +4,7 @@
         color: '#DEBD5C',
         defaults: {
             name: {value:""},
-            fasta: {value:"", required: true},
+            fasta: {value:"", required: false},
             pathfolder: {value:"", required: true},
             outputname: {value:"", required: true}
         },
@@ -24,12 +24,12 @@
     </div>
 
     <div class="form-row">
-        <label for="node-input-fasta"><i class="fa fa-tag"></i> Fasta File</label>
+        <label for="node-input-fasta"><i class="fa fa-tag"></i> Fasta File (insert path with "/" separator)</label>
         <input type="text" id="node-input-fasta" placeholder="Fasta">
     </div>
 
     <div class="form-row">
-        <label for="node-input-pathfolder"><i class="fa fa-tag"></i> Path Folder Output</label>
+        <label for="node-input-pathfolder"><i class="fa fa-tag"></i> Path Folder Output (insert path with "/" separator)</label>
         <input type="text" id="node-input-pathfolder" placeholder="Pathfolder">
     </div>
 
