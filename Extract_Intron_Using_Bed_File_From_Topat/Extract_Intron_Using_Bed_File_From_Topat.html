@@ -1,23 +1,25 @@
 <script type="text/javascript">
-    RED.nodes.registerType('increment_fasta_contig',{
+    RED.nodes.registerType('extract_intron_using_bed_file_from_topat',{
         category: 'BioUnicam',
-        color: '#87A980',
+        color: '#A6BBCF',
         defaults: {
             name: {value:""},
-            fasta: {value:"", required: false},
+            fasta: {value:"", required: true},
+            tp: {value:"", required: true},
             pathfolder: {value:"", required: true},
-            outputname: {value:"", required: true}
+            outputname: {value:"", required: true},
+            flanking: {value:"", required:false}
         },
         inputs:1,
         outputs:1,
-        icon: "font-awesome/fa-arrow-up",
+        icon: "font-awesome/fa-file-archive-o",
         label: function() {
-            return this.name||"increment_fasta_contig";
+            return this.name||"extract_intron_using_bed_file_from_topat";
         }
     });
 </script>
 
-<script type="text/html" data-template-name="increment_fasta_contig">
+<script type="text/html" data-template-name="extract_intron_using_bed_file_from_topat">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
@@ -29,6 +31,11 @@
     </div>
 
     <div class="form-row">
+        <label for="node-input-tp"><i class="fa fa-tag"></i> Topat GTF (insert path with "/" separator)</label>
+        <input type="text" id="node-input-tp" placeholder="Topat">
+    </div>
+
+    <div class="form-row">
         <label for="node-input-pathfolder"><i class="fa fa-tag"></i> Path Folder Output (insert path with "/" separator)</label>
         <input type="text" id="node-input-pathfolder" placeholder="Pathfolder">
     </div>
@@ -36,5 +43,10 @@
     <div class="form-row">
         <label for="node-input-outputname"><i class="fa fa-tag"></i> Name Output</label>
         <input type="text" id="node-input-outputname" placeholder="Outputname">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-flanking"><i class="fa fa-tag"></i> Flanking</label>
+        <input type="text" id="node-input-flanking" placeholder="Flanking">
     </div>
 </script>

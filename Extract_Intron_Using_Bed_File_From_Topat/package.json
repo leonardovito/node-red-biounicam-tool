@@ -1,0 +1,16 @@
+{
+  "name": "extract_intron_using_bed_file_from_topat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Extract_Intron_Using_Bed_File_From_Topat.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "node-red": {
+    "nodes": {
+      "extract_intron_using_bed_file_from_topat": "Extract_Intron_Using_Bed_File_From_Topat.js"
+    }
+  }
+}

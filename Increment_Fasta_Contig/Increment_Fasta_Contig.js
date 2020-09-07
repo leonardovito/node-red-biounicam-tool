@@ -2,6 +2,16 @@ const { allowedNodeEnvironmentFlags, stdout } = require('process');
 
 module.exports = function(RED) {
     function IncrementFastaContig(config) {
+        
+        function isJson(str) {
+            try {
+                JSON.parse(str);
+            } catch (e) {
+                return false;
+            }
+            return true;
+        }
+
         RED.nodes.createNode(this,config);
         var node = this;
 
@@ -23,7 +33,7 @@ module.exports = function(RED) {
         let command = 'java -jar ' + jaraddr + ' -f ' + node.fasta + ' -path ' + node.pathfolder + ' -out ' + node.outputname;
 
         node.on('input', function(msg) {
-            if(msg.payload != "input") {
+            if(isJson(msg.payload)) {
                 console.log(msg.payload)
                 var obj = JSON.parse(msg.payload);
                 if(obj.status = "done") {
