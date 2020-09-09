@@ -4,10 +4,10 @@
         color: '#DEBD5C',
         defaults: {
             name: {value:""},
-            fasta: {value:"", required: true},
-            cuff: {value:"", required: true},
-            pathfolder: {value:"", required: true},
-            outputname: {value:"", required: true},
+            fasta: {value:"", required: false},
+            cuff: {value:"", required: false},
+            pathfolder: {value:"", required: false},
+            outputname: {value:"", required: false},
             flanking: {value:"", required:false}
         },
         inputs:1,
@@ -49,4 +49,7 @@
         <label for="node-input-flanking"><i class="fa fa-tag"></i> Flanking</label>
         <input type="text" id="node-input-flanking" placeholder="Flanking">
     </div>
+</script>
+<script type="text/html" data-help-name="extract_intron_from_cuff_gtf">
+    <p>Extract intron from Cuff GTF</p>
 </script>

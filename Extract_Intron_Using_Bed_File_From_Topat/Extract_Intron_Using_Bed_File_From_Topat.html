@@ -4,10 +4,10 @@
         color: '#A6BBCF',
         defaults: {
             name: {value:""},
-            fasta: {value:"", required: true},
-            tp: {value:"", required: true},
-            pathfolder: {value:"", required: true},
-            outputname: {value:"", required: true},
+            fasta: {value:"", required: false},
+            tp: {value:"", required: false},
+            pathfolder: {value:"", required: false},
+            outputname: {value:"", required: false},
             flanking: {value:"", required:false}
         },
         inputs:1,
@@ -49,4 +49,7 @@
         <label for="node-input-flanking"><i class="fa fa-tag"></i> Flanking</label>
         <input type="text" id="node-input-flanking" placeholder="Flanking">
     </div>
+</script>
+<script type="text/html" data-help-name="extract_intron_using_bed_file_from_topat">
+    <p>Extract intron using bed file from Topat</p>
 </script>

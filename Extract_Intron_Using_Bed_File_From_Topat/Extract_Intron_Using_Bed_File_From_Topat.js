@@ -30,11 +30,21 @@ module.exports = function(RED) {
         }
         
         node.on('input', function(msg) {
+
+            if(node.fasta==null || node.fasta=="") {
+                if(msg.payload.flanking == "" || msg.payload.flanking == null) {
+                    command = 'java -jar ' + jaraddr + ' -fa ' + msg.payload.fasta + ' -tp ' + msg.payload.tp +  ' -out ' + msg.payload.outputname + ' -path ' + msg.payload.pathfolder;
+                } else {
+                    command = 'java -jar ' + jaraddr + ' -fa ' + msg.payload.fasta + ' -tp ' + msg.payload.tp +  ' -out ' + msg.payload.outputname + ' -path ' + msg.payload.pathfolder + ' -f ' + msg.payload.flanking;
+                }
+            }
+            console.log(command)
             const exec = require('child_process').exec;
             const childPorcess = exec(command, function(err, stdout, stderr) {
                 if (err) {
                     console.log(err)
                 }
+
                 msg.payload = stdout;
                 node.send(msg);
             })

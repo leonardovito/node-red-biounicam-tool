@@ -33,23 +33,32 @@ module.exports = function(RED) {
         let command = 'java -jar ' + jaraddr + ' -f ' + node.fasta + ' -path ' + node.pathfolder + ' -out ' + node.outputname;
 
         node.on('input', function(msg) {
-            if(isJson(msg.payload)) {
+            console.log(msg.payload.fasta)
+            /*if(isJson(msg.payload)) {
                 console.log(msg.payload)
                 var obj = JSON.parse(msg.payload);
                 if(obj.status = "done") {
                     command = 'java -jar ' + jaraddr + ' -f ' + obj.path + ' -path ' + node.pathfolder + ' -out ' + node.outputname;
                 }
+            }*/
+            if(node.fasta==null || node.fasta=='') {
+                command = 'java -jar ' + jaraddr + ' -f ' + msg.payload.fasta + ' -path ' + msg.payload.pathfolder + ' -out ' + msg.payload.outputname;
             }
-
+            console.log(command)
             const exec = require('child_process').exec;
             const childPorcess = exec(command, function(err, stdout, stderr) {
                 if (err) {
                     console.log(err)
                 }
 
-                stdout = stdout.slice(0, -3) + ',"path":"' + node.pathfolder + '/' + node.outputname + '"}'
-                //console.log(stdout)
                 msg.payload = stdout;
+                console.log(stdout)
+
+                if(isJson(stdout)){
+                    msg.payload = JSON.parse(stdout).process
+                }
+                //stdout = stdout.slice(0, -3) + ',"path":"' + node.pathfolder + '/' + node.outputname + '"}'
+                //console.log(stdout)
                 node.send(msg);
             })
         });
