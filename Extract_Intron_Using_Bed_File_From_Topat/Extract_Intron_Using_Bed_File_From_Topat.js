@@ -2,6 +2,16 @@ const { allowedNodeEnvironmentFlags, stdout } = require('process');
 
 module.exports = function(RED) {
     function ExtractIntronUsingBedFileFromTopat(config) {
+        
+        /*function isJson(str) {
+            try {
+                JSON.parse(str);
+            } catch (e) {
+                return false;
+            }
+            return true;
+        }*/
+        
         RED.nodes.createNode(this,config);
         var node = this;
 
@@ -42,11 +52,21 @@ module.exports = function(RED) {
             const exec = require('child_process').exec;
             const childPorcess = exec(command, function(err, stdout, stderr) {
                 if (err) {
-                    console.log(err)
+                    console.log(err);
+                    msg.payload.stdout = "Error";
+                    node.send(msg);
+                }
+                else{
+                    msg.payload.stdout = stdout;
+                    node.send(msg);
+                }
+
+                /*if(isJson(stdout)){
+                    msg.payload = JSON.parse(stdout).process
                 }
 
                 msg.payload = stdout;
-                node.send(msg);
+                node.send(msg);*/
             })
         });
     }

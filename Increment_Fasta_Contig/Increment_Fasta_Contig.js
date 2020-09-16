@@ -3,14 +3,14 @@ const { allowedNodeEnvironmentFlags, stdout } = require('process');
 module.exports = function(RED) {
     function IncrementFastaContig(config) {
         
-        function isJson(str) {
+        /*function isJson(str) {
             try {
                 JSON.parse(str);
             } catch (e) {
                 return false;
             }
             return true;
-        }
+        }*/
 
         RED.nodes.createNode(this,config);
         var node = this;
@@ -33,14 +33,6 @@ module.exports = function(RED) {
         let command = 'java -jar ' + jaraddr + ' -f ' + node.fasta + ' -path ' + node.pathfolder + ' -out ' + node.outputname;
 
         node.on('input', function(msg) {
-            console.log(msg.payload.fasta)
-            /*if(isJson(msg.payload)) {
-                console.log(msg.payload)
-                var obj = JSON.parse(msg.payload);
-                if(obj.status = "done") {
-                    command = 'java -jar ' + jaraddr + ' -f ' + obj.path + ' -path ' + node.pathfolder + ' -out ' + node.outputname;
-                }
-            }*/
             if(node.fasta==null || node.fasta=='') {
                 command = 'java -jar ' + jaraddr + ' -f ' + msg.payload.fasta + ' -path ' + msg.payload.pathfolder + ' -out ' + msg.payload.outputname;
             }
@@ -48,10 +40,16 @@ module.exports = function(RED) {
             const exec = require('child_process').exec;
             const childPorcess = exec(command, function(err, stdout, stderr) {
                 if (err) {
-                    console.log(err)
+                    console.log(err);
+                    msg.payload.stdout = "Error";
+                    node.send(msg);
+                }
+                else{
+                    msg.payload.stdout = stdout;
+                    node.send(msg);
                 }
 
-                msg.payload = stdout;
+                /*msg.payload = stdout;
                 console.log(stdout)
 
                 if(isJson(stdout)){
@@ -59,7 +57,7 @@ module.exports = function(RED) {
                 }
                 //stdout = stdout.slice(0, -3) + ',"path":"' + node.pathfolder + '/' + node.outputname + '"}'
                 //console.log(stdout)
-                node.send(msg);
+                node.send(msg);*/
             })
         });
     }

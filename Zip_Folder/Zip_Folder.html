@@ -1,0 +1,39 @@
+<script type="text/javascript">
+    RED.nodes.registerType('zip_folder',{
+        category: 'BioUnicam',
+        color: '#D8BFD8',
+        defaults: {
+            name: {value:""},
+            pathIn: {value:"", required: false},
+            pathOut: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "hash.svg",
+        label: function() {
+            return this.name||"zip_folder";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="zip_folder">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-pathIn"><i class="fa fa-tag"></i> Path of the folder to zip (insert path with "/" separator)</label>
+        <input type="text" id="node-input-pathIn" placeholder="PathIn">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-pathOut"><i class="fa fa-tag"></i> Path and name of zip Output (insert path with "/" separator)</label>
+        <input type="text" id="node-input-pathfolder" placeholder="PathOut">
+    </div>
+
+    </div>
+</script>
+<script type="text/html" data-help-name="zip_folder">
+    <p>Zip directory</p>
+</script>
