@@ -21,9 +21,9 @@ module.exports = function(RED) {
         if(os == "win32") {
             var useros = require('os');
             var username = useros.userInfo().username;
-            jaraddr = 'C:/Users/' + username + '/.node-red/node_modules/extract_intron_using_bed_file_from_topat/lib/ExtractIntronUsingBEdFileFromTopat.jar'
+            jaraddr = 'C:/Users/' + username + '/.node-red/node_modules/node-red-biounicam-tool/Extract_Intron_Using_Bed_File_From_Topat/lib/ExtractIntronUsingBEdFileFromTopat.jar'
         } else {
-            jaraddr = "~/.node-red/node_modules/extract_intron_using_bed_file_from_topat/lib/ExtractIntronUsingBEdFileFromTopat.jar";
+            jaraddr = "~/.node-red/node_modules/node-red-biounicam-tool/Extract_Intron_Using_Bed_File_From_Topat/lib/ExtractIntronUsingBEdFileFromTopat.jar";
         }
 
         this.fasta = config.fasta;

@@ -1,0 +1,11 @@
+{
+  "name": "remove_conting_from_fasta",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Remove_Conting_From_Fasta.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

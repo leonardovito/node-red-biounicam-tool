@@ -13,11 +13,11 @@ module.exports = function(RED) {
             if(os == "win32") {
                 var useros = require('os');
                 var username = useros.userInfo().username;
-                jaraddr = 'C:/Users/' + username + '/.node-red/node_modules/Zip_Folder/lib/zip.jar'
+                jaraddr = 'C:/Users/' + username + '/.node-red/node_modules/node-red-biounicam-tool/Zip_Folder/lib/zip.jar'
                 pathIn = 'C:/Users/'+ username + '/.node-red/temp/'+ msg.payload.pathIn
                 pathOut = 'C:/Users/'+ username + '/.node-red/temp/'+ msg.payload.pathOut
             } else {
-                jaraddr = "~/.node-red/node_modules/Zip_Folder/lib/zip.jar"
+                jaraddr = "~/.node-red/node_modules/node-red-biounicam-tool/Zip_Folder/lib/zip.jar"
                 pathIn = "~/.node-red/temp/" + msg.payload.pathIn
                 pathOut = "~/.node-red/temp/" + msg.payload.pathOut
             }

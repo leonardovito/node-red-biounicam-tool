@@ -1,0 +1,49 @@
+<script type="text/javascript">
+    RED.nodes.registerType('remove_conting_from_fasta',{
+        category: 'BioUnicam',
+        color: '#C7E9C0',
+        defaults: {
+            name: {value:""},
+            fasta1: {value:"", required: false},
+            fasta2: {value:"", required: false},
+            pathfolder: {value:"", required: false},
+            outputname: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-minus-circle",
+        label: function() {
+            return this.name||"remove_conting_from_fasta";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="remove_conting_from_fasta">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-fasta1"><i class="fa fa-tag"></i> Fasta File 1 (insert path with "/" separator)</label>
+        <input type="text" id="node-input-fasta1" placeholder="Fasta1">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-fasta2"><i class="fa fa-tag"></i> Fasta File 2 (insert path with "/" separator)</label>
+        <input type="text" id="node-input-fasta2" placeholder="Fasta2">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-pathfolder"><i class="fa fa-tag"></i> Path Folder Output (insert path with "/" separator)</label>
+        <input type="text" id="node-input-pathfolder" placeholder="Pathfolder">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-outputname"><i class="fa fa-tag"></i> Name Output</label>
+        <input type="text" id="node-input-outputname" placeholder="Outputname">
+    </div>
+</script>
+<script type="text/html" data-help-name="remove_conting_from_fasta">
+    <p>Remove conting from fasta</p>
+</script>

@@ -1,7 +1,7 @@
 const { allowedNodeEnvironmentFlags, stdout } = require('process');
 
 module.exports = function(RED) {
-    function IncrementFastaContig(config) {
+    function RemoveContingFromFasta(config) {
         
         /*function isJson(str) {
             try {
@@ -11,7 +11,7 @@ module.exports = function(RED) {
             }
             return true;
         }*/
-
+        
         RED.nodes.createNode(this,config);
         var node = this;
 
@@ -21,20 +21,22 @@ module.exports = function(RED) {
         if(os == "win32") {
             var useros = require('os');
             var username = useros.userInfo().username;
-            jaraddr = 'C:/Users/' + username + '/.node-red/node_modules/node-red-biounicam-tool/Increment_Fasta_Contig/lib/IncremetingConting.jar'
+            jaraddr = 'C:/Users/' + username + '/.node-red/node_modules/node-red-biounicam-tool/Remove_Conting_From_Fasta/lib/RemoveContingFromFasta.jar'
         } else {
-            jaraddr = "~/.node-red/node_modules/node-red-biounicam-tool/Increment_Fasta_Contig/lib/IncremetingConting.jar";
+            jaraddr = "~/.node-red/node_modules/node-red-biounicam-tool/Remove_Conting_From_Fasta/lib/RemoveContingFromFasta.jar";
         }
 
-        this.fasta = config.fasta;
+        this.fasta1 = config.fasta1;
+        this.fasta2 = config.fasta2;
         this.pathfolder = config.pathfolder;
         this.outputname = config.outputname;
 
-        let command = 'java -jar ' + jaraddr + ' -f ' + node.fasta + ' -path ' + node.pathfolder + ' -out ' + node.outputname;
-
+        var command = 'java -jar ' + jaraddr + ' -fa1 ' + node.fasta1 + ' -fa2 ' + node.fasta2 +  ' -out ' + node.outputname + ' -path ' + node.pathfolder;
+       
+        
         node.on('input', function(msg) {
             if(node.fasta==null || node.fasta=='') {
-                command = 'java -jar ' + jaraddr + ' -f ' + msg.payload.fasta + ' -path ' + msg.payload.pathfolder + ' -out ' + msg.payload.outputname;
+                command = 'java -jar ' + jaraddr + ' -fa1 ' + msg.payload.fasta1 + ' -fa2 ' + msg.payload.fasta2 +  ' -out ' + msg.payload.outputname + ' -path ' + msg.payload.pathfolder;
             }
             console.log(command)
             const exec = require('child_process').exec;
@@ -49,17 +51,14 @@ module.exports = function(RED) {
                     node.send(msg);
                 }
 
-                /*msg.payload = stdout;
-                console.log(stdout)
-
-                if(isJson(stdout)){
+               /*if(isJson(stdout)){
                     msg.payload = JSON.parse(stdout).process
                 }
-                //stdout = stdout.slice(0, -3) + ',"path":"' + node.pathfolder + '/' + node.outputname + '"}'
-                //console.log(stdout)
-                node.send(msg);*/
+
+                msg.payload = stdout;*/
+                
             })
         });
     }
-    RED.nodes.registerType("increment_fasta_contig",IncrementFastaContig);
+    RED.nodes.registerType("remove_conting_from_fasta",RemoveContingFromFasta);
 }
