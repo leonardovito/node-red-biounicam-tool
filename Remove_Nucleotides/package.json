@@ -1,0 +1,19 @@
+{
+  "name": "remove_nucleotides",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Remove_Nucleotides.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "node-red": {
+    "nodes": {
+      "remove_nucleotides": "Remove_Nucleotides/Remove_Nucleotides.js"
+    }
+  },
+  "dependencies": {
+    "node-red-biounicam-tool": "file:.."
+  }
+}

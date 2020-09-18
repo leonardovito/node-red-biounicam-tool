@@ -1,0 +1,16 @@
+{
+  "name": "merge_fasta",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Merge_Fasta.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "node-red": {
+    "nodes": {
+      "merge_fasta" : "Merge_Fasta/Merge_Fasta.js"
+    }
+  }
+}

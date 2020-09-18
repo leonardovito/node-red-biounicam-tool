@@ -14,6 +14,8 @@
       "extract_intron_using_bed_file_from_topat": "Extract_Intron_Using_Bed_File_From_Topat/Extract_Intron_Using_Bed_File_From_Topat.js",
       "extract_intron_from_cuff_gtf": "Extract_Intron_From_Cuff_GTF/Extract_Intron_From_Cuff_GTF.js",
       "remove_conting_from_fasta" : "Remove_Conting_From_Fasta/Remove_Conting_From_Fasta.js",
+      "merge_fasta" : "Merge_Fasta/Merge_Fasta.js",
+      "remove_nucleotides" : "Remove_Nucleotides/Remove_Nucleotides.js",
       "zip_folder": "Zip_Folder/Zip_Folder.js"
     }
   }

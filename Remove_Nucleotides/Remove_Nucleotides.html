@@ -1,0 +1,49 @@
+<script type="text/javascript">
+    RED.nodes.registerType('remove_nucleotides',{
+        category: 'BioUnicam',
+        color: '#FFAAAA',
+        defaults: {
+            name: {value:""},
+            fasta: {value:"", required: false},
+            n: {value:"", required: false},
+            pathfolder: {value:"", required: false},
+            outputname: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-eraser",
+        label: function() {
+            return this.name||"remove_nucleotides";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="remove_nucleotides">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-fasta"><i class="fa fa-tag"></i> Fasta File (insert path with "/" separator)</label>
+        <input type="text" id="node-input-fasta" placeholder="Fasta">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-n"><i class="fa fa-tag"></i> Number of Nucleotides to remove</label>
+        <input type="text" id="node-input-n" placeholder="N">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-pathfolder"><i class="fa fa-tag"></i> Path Folder Output (insert path with "/" separator)</label>
+        <input type="text" id="node-input-pathfolder" placeholder="Pathfolder">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-outputname"><i class="fa fa-tag"></i> Name Output</label>
+        <input type="text" id="node-input-outputname" placeholder="Outputname">
+    </div>
+</script>
+<script type="text/html" data-help-name="remove_nucleotides">
+    <p>Remove Nucleotides</p>
+</script>

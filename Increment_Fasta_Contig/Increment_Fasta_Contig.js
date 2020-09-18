@@ -2,16 +2,6 @@ const { allowedNodeEnvironmentFlags, stdout } = require('process');
 
 module.exports = function(RED) {
     function IncrementFastaContig(config) {
-        
-        /*function isJson(str) {
-            try {
-                JSON.parse(str);
-            } catch (e) {
-                return false;
-            }
-            return true;
-        }*/
-
         RED.nodes.createNode(this,config);
         var node = this;
 
@@ -48,16 +38,6 @@ module.exports = function(RED) {
                     msg.payload.stdout = stdout;
                     node.send(msg);
                 }
-
-                /*msg.payload = stdout;
-                console.log(stdout)
-
-                if(isJson(stdout)){
-                    msg.payload = JSON.parse(stdout).process
-                }
-                //stdout = stdout.slice(0, -3) + ',"path":"' + node.pathfolder + '/' + node.outputname + '"}'
-                //console.log(stdout)
-                node.send(msg);*/
             })
         });
     }

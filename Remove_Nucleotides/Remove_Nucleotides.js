@@ -1,7 +1,7 @@
 const { allowedNodeEnvironmentFlags, stdout } = require('process');
 
 module.exports = function(RED) {
-    function RemoveContingFromFasta(config) {
+    function RemoveNucleotides(config) {
         RED.nodes.createNode(this,config);
         var node = this;
 
@@ -11,22 +11,21 @@ module.exports = function(RED) {
         if(os == "win32") {
             var useros = require('os');
             var username = useros.userInfo().username;
-            jaraddr = 'C:/Users/' + username + '/.node-red/node_modules/node-red-biounicam-tool/Remove_Conting_From_Fasta/lib/RemoveContingFromFasta.jar'
+            jaraddr = 'C:/Users/' + username + '/.node-red/node_modules/node-red-biounicam-tool/Remove_Nucleotides/lib/RemoveNucleotides.jar'
         } else {
-            jaraddr = "~/.node-red/node_modules/node-red-biounicam-tool/Remove_Conting_From_Fasta/lib/RemoveContingFromFasta.jar";
+            jaraddr = "~/.node-red/node_modules/node-red-biounicam-tool/Remove_Nucleotides/lib/RemoveNucleotides.jar";
         }
 
-        this.fasta1 = config.fasta1;
-        this.fasta2 = config.fasta2;
+        this.fasta = config.fasta;
+        this.n = config.n;
         this.pathfolder = config.pathfolder;
         this.outputname = config.outputname;
 
-        var command = 'java -jar ' + jaraddr + ' -fa1 ' + node.fasta1 + ' -fa2 ' + node.fasta2 +  ' -out ' + node.outputname + ' -path ' + node.pathfolder;
-       
-        
+        let command = 'java -jar ' + jaraddr + ' -f ' + node.fasta + ' -n ' + node.n + ' -path ' + node.pathfolder + ' -out ' + node.outputname;
+
         node.on('input', function(msg) {
             if(node.fasta==null || node.fasta=='') {
-                command = 'java -jar ' + jaraddr + ' -fa1 ' + msg.payload.fasta1 + ' -fa2 ' + msg.payload.fasta2 +  ' -out ' + msg.payload.outputname + ' -path ' + msg.payload.pathfolder;
+                command = 'java -jar ' + jaraddr + ' -f ' + msg.payload.fasta + ' -n ' + msg.payload.n + ' -path ' + msg.payload.pathfolder + ' -out ' + msg.payload.outputname;
             }
             console.log(command)
             const exec = require('child_process').exec;
@@ -43,5 +42,5 @@ module.exports = function(RED) {
             })
         });
     }
-    RED.nodes.registerType("remove_conting_from_fasta",RemoveContingFromFasta);
+    RED.nodes.registerType("remove_nucleotides",RemoveNucleotides);
 }

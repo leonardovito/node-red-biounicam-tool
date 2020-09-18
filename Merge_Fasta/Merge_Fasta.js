@@ -1,7 +1,7 @@
 const { allowedNodeEnvironmentFlags, stdout } = require('process');
 
 module.exports = function(RED) {
-    function RemoveContingFromFasta(config) {
+    function MergeFasta(config) {        
         RED.nodes.createNode(this,config);
         var node = this;
 
@@ -11,9 +11,9 @@ module.exports = function(RED) {
         if(os == "win32") {
             var useros = require('os');
             var username = useros.userInfo().username;
-            jaraddr = 'C:/Users/' + username + '/.node-red/node_modules/node-red-biounicam-tool/Remove_Conting_From_Fasta/lib/RemoveContingFromFasta.jar'
+            jaraddr = 'C:/Users/' + username + '/.node-red/node_modules/node-red-biounicam-tool/Merge_Fasta/lib/MergeFasta.jar'
         } else {
-            jaraddr = "~/.node-red/node_modules/node-red-biounicam-tool/Remove_Conting_From_Fasta/lib/RemoveContingFromFasta.jar";
+            jaraddr = "~/.node-red/node_modules/node-red-biounicam-tool/Merge_Fasta/lib/MergeFasta.jar";
         }
 
         this.fasta1 = config.fasta1;
@@ -43,5 +43,5 @@ module.exports = function(RED) {
             })
         });
     }
-    RED.nodes.registerType("remove_conting_from_fasta",RemoveContingFromFasta);
+    RED.nodes.registerType("merge_fasta",MergeFasta);
 }
