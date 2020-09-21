@@ -14,7 +14,8 @@ First of all, open the terminal or cmd(Windows). Then move to your Node-Red user
 Remember to restart Node-Red after have installed or updated one or more nodes.<br/>
 #### Uninstall
 For uninstall the module go under Node-Red user directory, as we explained above, and use this command:<br/>
-  . _npm uninstall node-red-biounicam-tool_<br/>
+
+_npm uninstall node-red-biounicam-tool_<br/>
 
 ### FLOWS
 #### Increment Fasta
