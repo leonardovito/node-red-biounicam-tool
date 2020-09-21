@@ -21,9 +21,9 @@ module.exports = function(RED) {
         if(os == "win32") {
             var useros = require('os');
             var username = useros.userInfo().username;
-            jaraddr = 'C:/Users/' + username + '/.node-red/node_modules/node-red-biounicam-tool/Extract_Entron_From_Cuff_GTF/lib/ExtractIntroFromCuff.jar'
+            jaraddr = 'C:/Users/' + username + '/.node-red/node_modules/node-red-biounicam-tool/Extract_Intron_From_Cuff_GTF/lib/ExtractIntroFromCuff.jar'
         } else {
-            jaraddr = "~/.node-red/node_modules/node-red-biounicam-tool/Extract_Entron_From_Cuff_GTF/lib/ExtractIntroFromCuff.jar";
+            jaraddr = "~/.node-red/node_modules/node-red-biounicam-tool/Extract_Intron_From_Cuff_GTF/lib/ExtractIntroFromCuff.jar";
         }
 
         this.fasta = config.fasta;

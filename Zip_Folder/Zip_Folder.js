@@ -4,30 +4,42 @@ module.exports = function(RED) {
     function ZipFolder(config) {
         RED.nodes.createNode(this,config);
         var node = this;
+        var os = process.platform;
+        var jaraddr = "";
+               
+
+        this.pathIn = config.pathIn;
+        this.pathOut = config.pathOut;
+
+        let command = 'java -jar ' + jaraddr + ' ' + node.pathIn + ' ' + node.pathOut ;
+        if(os == "win32") {
+            var useros = require('os');
+            var username = useros.userInfo().username;
+            jaraddr = 'C:/Users/' + username + '/.node-red/node_modules/node-red-biounicam-tool/Zip_Folder/lib/zip.jar'
+            pathIn = 'C:/Users/'+ username + '/.node-red/temp/'+ node.pathIn
+            pathOut = 'C:/Users/'+ username + '/.node-red/temp/'+ node.pathOut
+        } else {
+            jaraddr = "~/.node-red/node_modules/node-red-biounicam-tool/Zip_Folder/lib/zip.jar"
+            pathIn = "~/.node-red/temp/" + node.pathIn
+            pathOut = "~/.node-red/temp/" + node.pathOut
+        }
 
         node.on('input', function(msg) {
-            var os = process.platform;
-            var jaraddr = "";
-            var pathIn, pathOut;        
-            
-            if(os == "win32") {
-                var useros = require('os');
-                var username = useros.userInfo().username;
-                jaraddr = 'C:/Users/' + username + '/.node-red/node_modules/node-red-biounicam-tool/Zip_Folder/lib/zip.jar'
-                pathIn = 'C:/Users/'+ username + '/.node-red/temp/'+ msg.payload.pathIn
-                pathOut = 'C:/Users/'+ username + '/.node-red/temp/'+ msg.payload.pathOut
-            } else {
-                jaraddr = "~/.node-red/node_modules/node-red-biounicam-tool/Zip_Folder/lib/zip.jar"
-                pathIn = "~/.node-red/temp/" + msg.payload.pathIn
-                pathOut = "~/.node-red/temp/" + msg.payload.pathOut
-            }
-            
-            this.pathIn = config.pathIn;
-            this.pathOut = config.pathOut;
+            var pathIn, pathOut;
 
-            let command = 'java -jar ' + jaraddr + ' ' + node.pathIn + ' ' + node.pathOut ;
-        
             if(node.pathIn==null || node.pathOut=='') {
+                if(os == "win32") {
+                    var useros = require('os');
+                    var username = useros.userInfo().username;
+                    jaraddr = 'C:/Users/' + username + '/.node-red/node_modules/node-red-biounicam-tool/Zip_Folder/lib/zip.jar'
+                    pathIn = 'C:/Users/'+ username + '/.node-red/temp/'+ msg.payload.pathIn
+                    pathOut = 'C:/Users/'+ username + '/.node-red/temp/'+ msg.payload.pathOut
+                } else {
+                    jaraddr = "~/.node-red/node_modules/node-red-biounicam-tool/Zip_Folder/lib/zip.jar"
+                    pathIn = "~/.node-red/temp/" + msg.payload.pathIn
+                    pathOut = "~/.node-red/temp/" + msg.payload.pathOut
+                }
+
                 command = 'java -jar ' + jaraddr + ' ' + pathIn + ' ' + pathOut
             }
             console.log(command)
