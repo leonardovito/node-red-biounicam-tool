@@ -15,7 +15,7 @@ module.exports = function(RED) {
         if(os == "win32") {
             var useros = require('os');
             var username = useros.userInfo().username;
-            jaraddr = 'C:/Users/' + username + '/.node-red/node_modules/node-red-biounicam-tool/Zip_Folder/lib/zip.jar'
+            jaraddr = 'C:/Users/' + username + '/.node-red/node_modules/node-red-biounicam-tool/Zip_Folder/lib/zipWindows.jar'
             pathIn = 'C:/Users/'+ username + '/.node-red/temp/'+ node.pathIn
             pathOut = 'C:/Users/'+ username + '/.node-red/temp/'+ node.pathOut
         } else {
@@ -31,7 +31,7 @@ module.exports = function(RED) {
                 if(os == "win32") {
                     var useros = require('os');
                     var username = useros.userInfo().username;
-                    jaraddr = 'C:/Users/' + username + '/.node-red/node_modules/node-red-biounicam-tool/Zip_Folder/lib/zip.jar'
+                    jaraddr = 'C:/Users/' + username + '/.node-red/node_modules/node-red-biounicam-tool/Zip_Folder/lib/zipWindows.jar'
                     pathIn = 'C:/Users/'+ username + '/.node-red/temp/'+ msg.payload.pathIn
                     pathOut = 'C:/Users/'+ username + '/.node-red/temp/'+ msg.payload.pathOut
                 } else {
