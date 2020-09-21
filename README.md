@@ -10,6 +10,7 @@ First of all, open the terminal or cmd(Windows). Then move to your Node-Red user
 2. Windows:<br/>
   . _cd C:\\Users\\(username)\\.node_red<br/>
   . npm install (insert path of node folder)_<br/>
+
 Remember to restart Node-Red after have installed or updated one or more nodes.<br/>
 #### Uninstall
 For uninstall the module go under Node-Red user directory, as we explained above, and use this command:<br/>
