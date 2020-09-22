@@ -16,7 +16,8 @@
       "remove_conting_from_fasta" : "Remove_Conting_From_Fasta/Remove_Conting_From_Fasta.js",
       "merge_fasta" : "Merge_Fasta/Merge_Fasta.js",
       "remove_nucleotides" : "Remove_Nucleotides/Remove_Nucleotides.js",
-      "zip_folder": "Zip_Folder/Zip_Folder.js"
+      "zip_folder": "Zip_Folder/Zip_Folder.js",
+      "extract_intron_from_gtf_agustus": "Extract_Intron_From_GTF_Augustus/Extract_Intron_From_GTF_Augustus.js"
     }
   }
 }

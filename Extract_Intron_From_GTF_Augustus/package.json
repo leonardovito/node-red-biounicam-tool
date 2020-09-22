@@ -1,0 +1,16 @@
+{
+  "name": "extract_intron_from_gtf_augustus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Extract_Intron_From_GTF_Augustus.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "node-red": {
+    "nodes": {
+      "extract_intron_from_gtf_augustus": "Extract_Intron_From_GTF_Augustus.js"
+    }
+  }
+}
