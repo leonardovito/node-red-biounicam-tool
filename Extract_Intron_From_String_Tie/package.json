@@ -1,0 +1,16 @@
+{
+  "name": "extract_intron_from_string_tie",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Extract_Intron_From_String_Tie.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "node-red": {
+    "nodes": {
+      "extract_intron_from_string_tie" : "Extract_Intron_From_String_Tie.js"
+    }
+  }
+}

@@ -1,0 +1,85 @@
+<script type="text/javascript">
+    RED.nodes.registerType('extract_intron_from_string_tie',{
+        category: 'BioUnicam',
+        color: '#4285f4',
+        defaults: {
+            name: {value:""},
+            fasta: {value:"", required: false},
+            au: {value:"", required: false},
+            pathfolder: {value:"", required: false},
+            outputname: {value:"", required: false},
+            start: {value:"", required:false},
+            end: {value:"", required: false},
+            contig: {value:"", required: false},
+            strand: {value:"", required: false},
+            coverage: {value:"", required: false},
+            label: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-file-archive-o",
+        label: function() {
+            return this.name||"extract_intron_from_string_tie";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="extract_intron_from_string_tie">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-fasta"><i class="fa fa-tag"></i> Fasta File (insert path with "/" separator)</label>
+        <input type="text" id="node-input-fasta" placeholder="Fasta">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-st"><i class="fa fa-tag"></i> StringTie File (insert path with "/" separator)</label>
+        <input type="text" id="node-input-st" placeholder="St">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-pathfolder"><i class="fa fa-tag"></i> Path Folder Output (insert path with "/" separator)</label>
+        <input type="text" id="node-input-pathfolder" placeholder="Pathfolder">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-outputname"><i class="fa fa-tag"></i> Name Output</label>
+        <input type="text" id="node-input-outputname" placeholder="Outputname">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-start"><i class="fa fa-tag"></i> Start</label>
+        <input type="text" id="node-input-start" placeholder="Start">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-end"><i class="fa fa-tag"></i> End</label>
+        <input type="text" id="node-input-end" placeholder="End">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-contig"><i class="fa fa-tag"></i> Contig</label>
+        <input type="text" id="node-input-contig" placeholder="Contig">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-strand"><i class="fa fa-tag"></i> Strand</label>
+        <input type="text" id="node-input-strand" placeholder="Strand">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-coverage"><i class="fa fa-tag"></i> Coverage</label>
+        <input type="text" id="node-input-coverage" placeholder="Coverage">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-label"><i class="fa fa-tag"></i> Label</label>
+        <input type="text" id="node-input-label" placeholder="Label">
+    </div>
+</script>
+<script type="text/html" data-help-name="extract_intron_from_string_tie">
+    <p>Extract intron from String Tie</p>
+</script>
