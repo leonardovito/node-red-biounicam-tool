@@ -18,7 +18,8 @@
       "remove_nucleotides" : "Remove_Nucleotides/Remove_Nucleotides.js",
       "zip_folder" : "Zip_Folder/Zip_Folder.js",
       "extract_intron_from_gtf_agustus" : "Extract_Intron_From_GTF_Augustus/Extract_Intron_From_GTF_Augustus.js",
-      "extract_intron_from_string_tie" : "Extract_Intron_From_String_Tie/Extract_Intron_From_String_Tie.js"
+      "extract_intron_from_string_tie" : "Extract_Intron_From_String_Tie/Extract_Intron_From_String_Tie.js",
+      "create_dot_from_fasta" : "Create_Dot_From_Fasta/Create_Dot_From_Fasta.js"
     }
   }
 }
