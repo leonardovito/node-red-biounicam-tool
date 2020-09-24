@@ -13,7 +13,7 @@ module.exports = function(RED) {
 
         node.on('input', function(msg) {
             if(node.fasta==null || node.fasta=='') {
-                command = 'RNAfold <' + msg.payload.fasta + ' > ' + msg.payload.pathfolder + '/' + msg.payload.outputname;
+                command = 'RNAfold -i' + msg.payload.fasta + ' -o' + msg.payload.pathfolder + '/' + msg.payload.outputname + ' --noPS';
             }
             console.log(command)
             const exec = require('child_process').exec;
