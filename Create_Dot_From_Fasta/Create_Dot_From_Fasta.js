@@ -9,11 +9,11 @@ module.exports = function(RED) {
         this.pathfolder = config.pathfolder;
         this.outputname = config.outputname;
 
-        let command = 'RNAfold <' + node.fasta + ' > ' + node.pathfolder + '/' + node.outputname;
+        let command = "RNAfold <'" + node.fasta + "' >'" + node.pathfolder + "/" + node.outputname + "' --noPS";
 
         node.on('input', function(msg) {
             if(node.fasta==null || node.fasta=='') {
-                command = 'RNAfold -i' + msg.payload.fasta + ' -o' + msg.payload.pathfolder + '/' + msg.payload.outputname + ' --noPS';
+                command = "RNAfold <'" + msg.payload.fasta + "' >'" + msg.payload.pathfolder + "/" + msg.payload.outputname + "' --noPS";
             }
             console.log(command)
             const exec = require('child_process').exec;
