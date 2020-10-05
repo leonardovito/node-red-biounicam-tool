@@ -21,9 +21,11 @@ module.exports = function(RED) {
         this.nni = config.nni;
         
         if(os == "win32") {
-            command = '"C:/Program Files/R/R-4.0.2/bin/Rscript.exe" Create_Dateset_Feature/lib/dataFrameGenerator.R -irfasta=' + node.fileirf + ' -inrfasta=' + node.fileinrf + ' -path=' + node.pathfolder;
+            var useros = require('os');
+            var username = useros.userInfo().username;
+            command = '"C:/Program Files/R/R-4.0.2/bin/Rscript.exe" C:/Users/' + username + '/.node-red/node_modules/node-red-biounicam-tool/Create_Dateset_Feature/lib/dataFrameGenerator.R -irfasta=' + node.fileirf + ' -inrfasta=' + node.fileinrf + ' -path=' + node.pathfolder;
         } else {
-            command = 'Rscript Create_Dateset_Feature/lib/dataFrameGenerator.R -irfasta=' + node.fileirf + ' -inrfasta=' + node.fileinrf + ' -path=' + node.pathfolder;
+            command = 'Rscript ~/.node-red/node_modules/node-red-biounicam-tool/Create_Dateset_Feature/lib/dataFrameGenerator.R -irfasta=' + node.fileirf + ' -inrfasta=' + msg.payload.fileinrf + ' -path=' + node.pathfolder;
         }
 
         if(node.fileird != "") {
@@ -62,9 +64,11 @@ module.exports = function(RED) {
         node.on('input', function(msg) {
             if(node.fileirf==null || node.fileirf=='') {
                 if(os == "win32") {
-                    command = '"C:/Program Files/R/R-4.0.2/bin/Rscript.exe" Create_Dateset_Feature/lib/dataFrameGenerator.R -irfasta=' + msg.payload.fileirf + ' -inrfasta=' + msg.payload.fileinrf + ' -path=' + msg.payload.pathfolder;
+                    var useros = require('os');
+                    var username = useros.userInfo().username;
+                    command = '"C:/Program Files/R/R-4.0.2/bin/Rscript.exe" C:/Users/' + username + '/.node-red/node_modules/node-red-biounicam-tool/Create_Dateset_Feature/lib/dataFrameGenerator.R -irfasta=' + msg.payload.fileirf + ' -inrfasta=' + msg.payload.fileinrf + ' -path=' + msg.payload.pathfolder;
                 } else {
-                    command = 'Rscript Create_Dateset_Feature/lib/dataFrameGenerator.R -irfasta=' + msg.payload.fileirf + ' -inrfasta=' + msg.payload.fileinrf + ' -path=' + msg.payload.pathfolder;
+                    command = 'Rscript ~/.node-red/node_modules/node-red-biounicam-tool/Create_Dateset_Feature/lib/dataFrameGenerator.R -irfasta=' + msg.payload.fileirf + ' -inrfasta=' + msg.payload.fileinrf + ' -path=' + msg.payload.pathfolder;
                 }
 
                 if(msg.payload.fileird != "") {
