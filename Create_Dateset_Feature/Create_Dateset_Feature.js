@@ -23,7 +23,7 @@ module.exports = function(RED) {
         if(os == "win32") {
             command = '"C:/Program Files/R/R-4.0.2/bin/Rscript.exe" Create_Dateset_Feature/lib/dataFrameGenerator.R -irfasta=' + node.fileirf + ' -inrfasta=' + node.fileinrf + ' -path=' + node.pathfolder;
         } else {
-            command = '~/Rscript Create_Dateset_Feature/lib/dataFrameGenerator.R -irfasta=' + node.fileirf + ' -inrfasta=' + node.fileinrf + ' -path=' + node.pathfolder;
+            command = 'Rscript Create_Dateset_Feature/lib/dataFrameGenerator.R -irfasta=' + node.fileirf + ' -inrfasta=' + node.fileinrf + ' -path=' + node.pathfolder;
         }
 
         if(node.fileird != "") {
@@ -64,7 +64,7 @@ module.exports = function(RED) {
                 if(os == "win32") {
                     command = '"C:/Program Files/R/R-4.0.2/bin/Rscript.exe" Create_Dateset_Feature/lib/dataFrameGenerator.R -irfasta=' + msg.payload.fileirf + ' -inrfasta=' + msg.payload.fileinrf + ' -path=' + msg.payload.pathfolder;
                 } else {
-                    command = '~/Rscript Create_Dateset_Feature/lib/dataFrameGenerator.R -irfasta=' + msg.payload.fileirf + ' -inrfasta=' + msg.payload.fileinrf + ' -path=' + msg.payload.pathfolder;
+                    command = 'Rscript Create_Dateset_Feature/lib/dataFrameGenerator.R -irfasta=' + msg.payload.fileirf + ' -inrfasta=' + msg.payload.fileinrf + ' -path=' + msg.payload.pathfolder;
                 }
 
                 if(msg.payload.fileird != "") {
