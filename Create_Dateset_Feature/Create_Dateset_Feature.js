@@ -25,7 +25,7 @@ module.exports = function(RED) {
             var username = useros.userInfo().username;
             command = '"C:/Program Files/R/R-4.0.2/bin/Rscript.exe" C:/Users/' + username + '/.node-red/node_modules/node-red-biounicam-tool/Create_Dateset_Feature/lib/dataFrameGenerator.R -irfasta=' + node.fileirf + ' -inrfasta=' + node.fileinrf + ' -path=' + node.pathfolder;
         } else {
-            command = 'Rscript ~/.node-red/node_modules/node-red-biounicam-tool/Create_Dateset_Feature/lib/dataFrameGenerator.R -irfasta=' + node.fileirf + ' -inrfasta=' + msg.payload.fileinrf + ' -path=' + node.pathfolder;
+            command = 'Rscript ~/.node-red/node_modules/node-red-biounicam-tool/Create_Dateset_Feature/lib/dataFrameGenerator.R -irfasta=' + node.fileirf + ' -inrfasta=' + node.fileinrf + ' -path=' + node.pathfolder;
         }
 
         if(node.fileird != "") {
