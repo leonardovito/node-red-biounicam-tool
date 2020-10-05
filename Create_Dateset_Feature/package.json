@@ -1,0 +1,16 @@
+{
+  "name": "r_esempio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "R_esempio.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "node-red": {
+    "nodes": {
+      "create_dateset_feature" : "Create_Dateset_Feature.js"
+    }
+  }
+}

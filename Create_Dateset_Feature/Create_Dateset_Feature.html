@@ -1,0 +1,100 @@
+<script type="text/javascript">
+    RED.nodes.registerType('create_dateset_feature',{
+        category: 'BioUnicam',
+        color: '#E9967A',
+        defaults: {
+            name: {value:""},
+            fileirf: {value:"", required: false},
+            fileinrf: {value:"", required: false},
+            fileird: {value:"", required: false},
+            fileinrd: {value:"", required: false},
+            pathfolder: {value:"", required: false},
+            pNu: {value:"", required: false},
+            kMir: {value:"", required: false},
+            nf: {value:"", required: false},
+            eNt: {value:"", required: false},
+            ni: {value:"", required: false},
+            nni: {value:"", required: false}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-registered",
+        label: function() {
+            return this.name||"create_dateset_feature";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="create_dateset_feature">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-fileirf"><i class="fa fa-tag"></i> File Fasta introni ritenuti</label>
+        <input type="text" id="node-input-fileirf" placeholder="fileirf">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-fileinrf"><i class="fa fa-tag"></i> File Fasta introni non ritenuti</label>
+        <input type="text" id="node-input-fileinrf" placeholder="fileinrf">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-fileird"><i class="fa fa-tag"></i> File Dot introni ritenuti</label>
+        <input type="text" id="node-input-fileird" placeholder="fileird">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-fileinrd"><i class="fa fa-tag"></i> File Dot introni non ritenuti</label>
+        <input type="text" id="node-input-fileinrd" placeholder="fileinrd">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-pathfolder"><i class="fa fa-tag"></i> Path Folder Output (insert path with "/" separator)</label>
+        <input type="text" id="node-input-pathfolder" placeholder="pathfolder">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-pNu"><i class="fa fa-tag"></i> pNu</label>
+        <select id="node-input-pNu" name="node-input-pNu">
+            <option value="yes">YES</option>
+            <option value="no">NO</option>
+            </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-kMir"><i class="fa fa-tag"></i> kMir</label>
+        <select id="node-input-kMir" name="node-input-kMir">
+            <option value="yes">YES</option>
+            <option value="no">NO</option>
+            </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-nf"><i class="fa fa-tag"></i> nf</label>
+        <input type="text" id="node-input-nf" placeholder="nf">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-eNt"><i class="fa fa-tag"></i> eNt</label>
+        <select id="node-input-eNt" name="node-input-eNt">
+            <option value="yes">YES</option>
+            <option value="no">NO</option>
+            </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-ni"><i class="fa fa-tag"></i> ni</label>
+        <input type="text" id="node-input-ni" placeholder="ni">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-nni"><i class="fa fa-tag"></i> nni</label>
+        <input type="text" id="node-input-nni" placeholder="nni">
+    </div>
+</script>
+<script type="text/html" data-help-name="create_dateset_feature">
+    <p>R file exec</p>
+</script>
