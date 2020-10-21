@@ -272,6 +272,7 @@ Features <- R6Class("Features",
                           #row<-append(row,seqDna,length(row))
                           # Calcolo ML
                           seqDna<-dna[i,2]
+                          if(str_contains(seqDna, "N")==FALSE) {
                           if('s_p_NCF' %in% infoColumns){
                             pPhiAG<-private$seg_probalistc(seqDna,"A","G",minIntronLength)
                             PhiAG<-c(PhiAG=pPhiAG)
@@ -402,7 +403,7 @@ Features <- R6Class("Features",
                           
                           
                           
-                         
+                        }
                           }
                           #break
                         
