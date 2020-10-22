@@ -17,6 +17,13 @@ For uninstall the module go under Node-Red user directory, as we explained above
 
 _npm uninstall node-red-biounicam-tool_<br/>
 
+#### How run this project
+To run this project in node-red you need to create a folder named "temp" inside the node-red user folder. Once created, you need to navigate through it using the command: <br/>
+
+_cd ~/.node-red/temp_ </br>
+
+Now use the command: _"node-red"_ to run the program.
+
 ### FLOWS
 #### Create Unique IDs
 
